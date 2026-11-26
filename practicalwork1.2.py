@@ -75,7 +75,9 @@ print(result)
 x = int(input("Введите x: "))
 y = int(input("Введите y: "))
 
-x, y = y, x
+temp = x
+x = y
+y = temp
 
 print("x =", x)
 print("y =", y)
