@@ -4,45 +4,51 @@
 Вариант 8
 
 Задание 1:
-Найти сумму и произведение элементов списка.
-
-Задание 2:
-Заменить нулевые элементы массива
-средним арифметическим всех элементов.
+Найти все натуральные числа, не превосходящие n,
+которые делятся на каждую из своих цифр.
 """
 
-# Задание 1
+n = int(input("Введите n: "))
 
-n = int(input("Введите количество элементов: "))
-a = [int(input()) for i in range(n)]
+for i in range(1, n + 1):
+    a = i
+    flag = True
 
-s = 0
-p = 1
+    while a > 0 and flag:
+        digit = a % 10
 
-for i in range(n):
-    s = s + a[i]
-    p = p * a[i]
+        if digit == 0 or i % digit != 0:
+            flag = False
 
-print("Сумма:", s)
-print("Произведение:", p)
+        a = a // 10
 
-# Задание 2
+    if flag:
+        print(i, end=" ")
 
-n = int(input("Введите количество элементов: "))
-b = [float(input()) for i in range(n)]
+"""
+Задание 2:
+Поменять местами первый и последний элементы массива.
+"""
 
-s = 0
+def zam(A):
+    temp = A[0]
+    A[0] = A[len(A) - 1]
+    A[len(A) - 1] = temp
 
-for i in range(n):
-    s = s + b[i]
+m = int(input("\nВведите длину массива: "))
 
-average = s / n
+A = []
 
-for i in range(n):
-    if b[i] == 0:
-        b[i] = average
+for i in range(m):
+    A.append(int(input("Введите элемент массива: ")))
 
-print("Полученный массив:", b)
+print("Исходный массив:", A)
+
+zam(A)
+
+print("Полученный массив:", A)
+
+
 
 
 
